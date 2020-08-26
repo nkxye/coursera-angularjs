@@ -2,7 +2,7 @@
 <html lang="en" ng-app="LunchCheck">
 <head>
     <title>Lunch Checker</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <script type="text/javascript" src="../angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
@@ -13,7 +13,7 @@
 <body>
 <div class="container" ng-controller="LunchCheckController">
     <h1>Lunch Checker</h1>
-
+    <p>This checker lets the user know if he/she eats too many dishes (≥4) for lunch.</p>
     <div class="form-group" ng-class="{'has-error': blankDishInput == 1}">
         <input id="lunch-menu" type="text"
                ng-model="dishes"
