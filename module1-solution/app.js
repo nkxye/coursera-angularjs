@@ -9,8 +9,9 @@
         $scope.dishesCount = 0;
 
         $scope.checkDishes = function () {
-            if (typeof $scope.dishes == 'undefined' || $scope.dishes.trim().length === 0) {
+            if (typeof $scope.dishes == 'undefined' || $scope.dishes.length === 0) {
                 $scope.blankDishInput = 1;
+                $scope.dishesCountMessage = "Please enter data first.";
             } // checks if undefined or only has whitespaces
             else {
                 let dishArr = $scope.dishes.split(',').map(function(dish) {
@@ -18,6 +19,13 @@
                 }); // splits input into single word entries + eliminates whitespaces
                 dishArr = dishArr.filter(function (e) {return e}); // removes empty values from the array
                 $scope.dishesCount = dishArr.length;
+
+                if ($scope.dishesCount <= 3) {
+                    $scope.dishesCountMessage = "Enjoy!";
+                }
+                else {
+                    $scope.dishesCountMessage = "Too much!";
+                }
             }
         };
     }
