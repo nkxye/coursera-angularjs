@@ -4,14 +4,30 @@
             <th></th>
             <th>Name</th>
             <th>Description</th>
+            <th>S</th>
+            <th>L</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="item in $ctrl.itemResults">
-            <td>{{ item.short_name }}</td>
+            <td class="has-text-weight-bold">{{ item.short_name }}</td>
             <td>{{ item.name }}</td>
             <td ng-if="item.description">{{ item.description }}</td>
-            <td ng-if="!item.description">N/A</td>
+            <td ng-if="!item.description" class="has-text-centered">N/A</td>
+            <td ng-if="item.price_small" class="has-text-centered">
+                {{ item.price_small | currency }} 
+                <span ng-if="item.small_portion_name">
+                    ({{ item.small_portion_name }})
+                </span>
+            </td>
+            <td ng-if="!item.price_small" class="has-text-centered">N/A</td>
+            <td ng-if="item.price_large" class="has-text-centered">
+                {{ item.price_large | currency }} 
+                <span ng-if="item.large_portion_name">
+                    ({{ item.large_portion_name }})
+                </span>
+            </td>
+            <td ng-if="!item.price_large" class="has-text-centered">N/A</td>
         </tr>
     </tbody>
 </table>
