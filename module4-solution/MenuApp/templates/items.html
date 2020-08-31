@@ -1,0 +1,16 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="categories">Categories</a></li>
+        <li class="is-active"><a href="#" aria-current="page">{{ menuItemCtrl.itemList.category.name }}</a></li>
+    </ul>
+</nav>
+
+<h1 class="title is-1">{{ menuItemCtrl.itemList.category.name }}</h1>
+<article class="message is-info" ng-if="menuItemCtrl.itemList.category.special_instructions">
+    <div class="message-body">
+        {{ menuItemCtrl.itemList.category.special_instructions }}
+    </div>
+</article>
+
+<item item-results="menuItemCtrl.itemList.menu_items"></item>

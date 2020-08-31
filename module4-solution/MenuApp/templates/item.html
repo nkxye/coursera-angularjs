@@ -1,0 +1,17 @@
+<table class="table is-striped is-fullwidth">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in $ctrl.itemResults">
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.name }}</td>
+            <td ng-if="item.description">{{ item.description }}</td>
+            <td ng-if="!item.description">N/A</td>
+        </tr>
+    </tbody>
+</table>
