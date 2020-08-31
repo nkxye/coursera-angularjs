@@ -1,5 +1,5 @@
 # coursera-angularjs
-This repository contains my assignments for Johns Hopkins University's AngularJS (Angular 1.x) course on Coursera.
+This repository contains my assignments for [Johns Hopkins University's AngularJS (Angular 1.x) course](https://www.coursera.org/learn/single-page-web-apps-with-angularjs) on [Coursera](https://www.coursera.org/).
 
 ## List of Assignments
 - [Lunch Checker](https://nkxye.github.io/coursera-angularjs/module1-solution/) (Rubrics: [Module 1 Coding Assignment](https://github.com/jhu-ep-coursera/fullstack-course5/blob/master/assignments/assignment1/Assignment-1.md))
