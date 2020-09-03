@@ -1,0 +1,56 @@
+<div id="about-view" class="container" style="min-height: 52vh; width: 60%;">
+  <h2 class="text-center">My Info</h2>
+  <div style="margin-top: 30px">
+    <div class="row" ng-if="!userCtrl.empty">
+      <div class="col-md-6"  style="margin-top: 16px">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td class="text-right"><strong>First Name</strong></td>
+              <td>{{ userCtrl.userDetails.firstName }}</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>Last Name</strong></td>
+              <td>{{ userCtrl.userDetails.lastName }}</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>Email Address</strong></td>
+              <td>{{ userCtrl.userDetails.emailAddress }}</td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong>Phone Number</strong></td>
+              <td>{{ userCtrl.userDetails.phone }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="menu-item-tile col-md-6">
+        <div class="row">
+          <h4 style="margin-left: 14px"><strong>Favorite Dish</strong></h4>
+          <div class="col-sm-5">
+            <div class="menu-item-photo">
+              <div>{{ userCtrl.userDetails.dish.short_name }}</div>
+              <img class="img-responsive" width="250" height="150" ng-src="{{userCtrl.apiPath}}/images/{{ userCtrl.userDetails.dish.short_name }}.jpg" alt="{{$ctrl.menuItem.name}}">
+            </div>
+            <div class="menu-item-price">
+              {{ userCtrl.userDetails.dish.price_small | currency }}
+              <span> {{ userCtrl.userDetails.dish.small_portion_name }}</span> {{ userCtrl.userDetails.dish.price_large | currency }} 
+              <span>{{ userCtrl.userDetails.dish.large_portion_name }}</span>
+            </div>
+          </div>
+          <div class="menu-item-description col-sm-7">
+            <h4 class="menu-item-title">{{ userCtrl.userDetails.dish.name }}</h4>
+            <small class="menu-item-details">{{ userCtrl.userDetails.dish.description }}</small>
+          </div>
+        </div>
+        <hr class="visible-xs">
+      </div>
+    </div>
+    <div ng-if="!userCtrl.empty">
+        <h4 class="text-center">You'll be receiving our newsletter at <strong>{{ userCtrl.userDetails.emailAddress }}</strong>. Thank you for signing up!</h4>
+    </div>
+    <div ng-if="userCtrl.empty">
+      <h4 class="text-center">Not Signed Up Yet. <a ui-sref="public.signup"><strong>Sign up Now!</strong></a></h4>
+  </div>
+  </div>
+</div>

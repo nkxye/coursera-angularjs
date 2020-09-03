@@ -1,0 +1,55 @@
+<div id="awards-view" class="container" style="min-height: 52vh" ng-controller="NewsletterController as formCtrl">
+  <h2 class="text-center">Sign Up For Our Newsletter!</h2>
+
+  <div class="center-block" style="width: 32%; margin-top: 30px; margin-bottom: 30px;" ng-if="!formCtrl.disableSignUp">
+    <form name="newsletterForm" novalidate>
+      <div class="form-group" ng-class="{'has-error': (newsletterForm.firstName.$error.required && newsletterForm.firstName.$touched)}">
+        <label for="exampleInputEmail1">First Name</label>
+        <input type="text" class="form-control" name="firstName" placeholder="First name" ng-model="formCtrl.firstName" required>
+        <span class="help-block" 
+          ng-if="newsletterForm.firstName.$error.required && newsletterForm.firstName.$touched">
+          Please enter your first name.
+        </span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': (newsletterForm.lastName.$error.required && newsletterForm.lastName.$touched)}">
+        <label for="exampleInputEmail1">Last Name</label>
+        <input type="text" class="form-control" name="lastName" placeholder="Last name" ng-model="formCtrl.lastName" required>
+        <span class="help-block" 
+          ng-if="newsletterForm.lastName.$error.required && newsletterForm.lastName.$touched">
+          Please enter your last name.
+        </span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': (newsletterForm.emailAddress.$invalid && newsletterForm.emailAddress.$touched)}">
+        <label for="exampleInputEmail1">Email Address</label>
+        <input type="email" class="form-control" name="emailAddress" placeholder="Email address" ng-model="formCtrl.emailAddress" required>
+        <span class="help-block" 
+          ng-if="newsletterForm.emailAddress.$invalid && newsletterForm.emailAddress.$touched">
+          Please enter your email address.
+        </span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': (newsletterForm.phone.$invalid && newsletterForm.phone.$touched)}">
+        <label for="exampleInputEmail1">Phone Number</label>
+        <input type="tel" class="form-control" name="phone" placeholder="###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="formCtrl.phone" required>
+        <span class="help-block" 
+          ng-if="newsletterForm.phone.$invalid && newsletterForm.phone.$touched">
+          Please enter your phone number in ###-###-#### format.
+        </span>
+      </div>
+      <div class="form-group" ng-class="{'has-error': ((newsletterForm.favDish.$invalid || formCtrl.invalidDish) && newsletterForm.favDish.$touched)}">
+        <label for="exampleInputEmail1">Favorite Dish</label>
+        <input type="text" class="form-control" name="favDish" placeholder="Menu number" ng-model="formCtrl.favDish" required>
+        <span class="help-block" 
+          ng-if="newsletterForm.favDish.$invalid && newsletterForm.favDish.$touched">
+          Please enter the menu number of your favorite dish.
+        </span>
+        <span class="help-block" ng-if="formCtrl.invalidDish">
+          No such menu number exists.
+        </span>
+      </div>
+      <button type="submit" class="btn btn-success btn-block" style="margin-top:30px" ng-disabled="newsletterForm.$invalid" ng-click="formCtrl.submit()">Submit</button>
+    </form>
+    <div class="alert alert-success" role="alert" ng-if="formCtrl.registered" style="margin-top:30px">Your information has been saved!</div>
+  </div>
+
+  <h4 class="text-center" ng-if="formCtrl.disableSignUp" style="margin-top:30px">Thank you for signing up! Check your info <a ui-sref="public.info"><strong>here</strong></a>.</h4>
+</div>
